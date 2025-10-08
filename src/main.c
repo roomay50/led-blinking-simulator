@@ -6,6 +6,18 @@ const char *led_on = "LED ON";
 const char *led_off = "LED OFF";
 const int delay_time = 1000;
 
+void turn_led_on(void)
+{
+    puts(led_on);
+    Sleep(delay_time);
+}
+
+void turn_led_off(void)
+{
+    puts(led_off);
+    Sleep(delay_time);
+}
+
 int main(void)
 {
     unsigned int count_blink;
@@ -15,32 +27,28 @@ int main(void)
 
     printf("\nEnter number of LED blinks (an integer)");
     scanf("%d", &count_blink);
-    printf("\nEnter the initial state iof the MCU (on or off)");
-    scanf("%7s", &state);
+    printf("\nEnter the initial state of the MCU (on or off)");
+    scanf("%s", state);
 
     // Using a for loop to silmulate LED blinking
     for (int i = 0; i < count_blink; i++)
     {
         if (_stricmp(state, on) == 0)
         {
-            puts(led_on);
-            Sleep(delay_time);
-            puts(led_off);
-            Sleep(delay_time);
+            turn_led_on();
+            turn_led_off();
         }
-        else if (stricmp(state, off) == 0)
+        else if (_stricmp(state, off) == 0)
         {
-            puts(led_off);
-            Sleep(delay_time);
-            puts(led_on);
-            Sleep(delay_time);
+            turn_led_off();
+            turn_led_on();
         }
         else
         {
-            puts("You did not enter a valid state");
+            puts("Invalid state Entered");
             break;
         }
     }
 
-    printf("%s", "\nSimulation for %d LED blinks complete\n", count_blink);
+    printf("\nSimulation for %d LED blinks complete\n", count_blink);
 }

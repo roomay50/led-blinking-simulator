@@ -1,0 +1,8 @@
+// Using a for loop to silmulate LED blinking
+for i in (1 to blink count)
+    print led on
+    delay time
+    led off
+    delay
+end loop
+

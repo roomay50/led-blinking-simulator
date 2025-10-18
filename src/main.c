@@ -24,31 +24,68 @@ int main(void)
     char state[8];
     char on[4] = "on";
     char off[4] = "off";
+    char quit[5] = "quit";
 
-    printf("\nEnter number of LED blinks (an integer)");
-    scanf("%d", &count_blink);
-    printf("\nEnter the initial state of the MCU (on or off)");
+    printf("%s", "\nEnter quit to quit\nEnter the initial state of the MCU (on or off): ");
     scanf("%s", state);
 
     // Using a for loop to silmulate LED blinking
-    for (int i = 0; i < count_blink; i++)
+    while (_stricmp(state != quit))
     {
-        if (_stricmp(state, on) == 0)
+        if (_stricmp(state, quit) == 0)
         {
-            turn_led_on();
-            turn_led_off();
+            printf("Thank you for simulating your LED!");
+            break;
         }
-        else if (_stricmp(state, off) == 0)
+        printf("%s", "\nEnter number of LED blinks (an integer)");
+        scanf("%d", &count_blink);
+
+        for (int i = 0; i < count_blink; i++)
         {
-            turn_led_off();
-            turn_led_on();
+            if (_stricmp(state, on) == 0)
+            {
+                turn_led_on();
+                turn_led_off();
+            }
+            else if (_stricmp(state, off) == 0)
+            {
+                turn_led_off();
+                turn_led_on();
+            }
+            else if (_stricmp(state, quit) == 0)
+            {
+                printf("Thank you for simulating your LED!");
+                break;
+            }
+
+            else
+            {
+                puts("Invalid state Entered");
+                break;
+            }
         }
+
+        printf("\nSimulation for %d LED blinks complete\n", count_blink);
+
+        char cont[4];
+        printf("%s", "do you want to simulate again? (Y/N): ");
+        scanf("%s", cont);
+
+        if (_stricmp(cont, "y") == 0)
+        {
+            printf("%s", "\nEnter quit to quit\nEnter the initial state of the MCU (on or off): ");
+            scanf("%s", state);
+        }
+        else if (_stricmp(cont, "n") == 0)
+        {
+            printf("Thank you for simulating your LED!");
+            break;
+        }
+
         else
         {
-            puts("Invalid state Entered");
+            puts("Invalid key Entered");
             break;
         }
     }
-
-    printf("\nSimulation for %d LED blinks complete\n", count_blink);
 }

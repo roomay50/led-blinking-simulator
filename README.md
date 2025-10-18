@@ -40,7 +40,7 @@ gcc pattern.c -o pattern
 If you’re using Linux or macOS, replace Sleep() with usleep() from <unistd.h> and adjust delays accordingly.
 ```
 
-##🧠 Learning Goals
+## 🧠 Learning Goals
 
 Practice C programming fundamentals (loops, conditionals, functions)
 
@@ -50,7 +50,7 @@ Simulate real embedded timing behavior
 
 Gain hands-on understanding of interactive CLI programs
 
-##🚀 Next Steps / Future Improvements
+## 🚀 Next Steps / Future Improvements
 
 Add patterns.h header to share pattern declarations
 
@@ -60,7 +60,7 @@ Implement additional LED effects (e.g., heartbeat, fading)
 
 Port to microcontroller platforms (e.g., Arduino, STM32) in later stages
 
-##🧑‍💻 Author
+## 🧑‍💻 Author
 
 Developed as part of a 10-week embedded systems self-learning roadmap.
 Built and tested purely in C, using standard I/O and Windows timing functions.

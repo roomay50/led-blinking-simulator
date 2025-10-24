@@ -43,16 +43,6 @@ void sos_pattern(void)
     puts("Simulation for SoS pattern complete");
 }
 
-void print_leds(char led[][4])
-{
-    for (int i = 0; i < 6; i++)
-    {
-        printf("%s", led[i]);
-    }
-
-    printf("\n");
-}
-
 void rider_pattern(void)
 {
     char led[6][4] = {"OFF", "OFF", "OFF", "OFF", "OFF", "OFF"};
@@ -94,7 +84,7 @@ int main(void)
     printf("%s", "\n(Enter quit to quit) \nEnter the blink parttern(SoS, Rider): ");
     scanf("%s", pattern);
 
-    while (_stricmp(pattern != "quit"))
+    while (pattern != quit)
     {
         if (_stricmp(pattern, sos) == 0)
         {
